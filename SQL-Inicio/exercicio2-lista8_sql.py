@@ -11,7 +11,7 @@ class CursoDao:
 class CursosDao(CursoDao):
     def criar_tabela(self):
         self.cursor.execute('''
-            CREAT A TABLE IF NOT EXIST Cursos(
+            CREATE TABLE IF NOT EXIST Cursos(
                             id INTERGER PRIMARY KEY AUTOINCREMENT,
                             nome TEXT NOT NULL,
                             nivel TEXT NOT NULL
@@ -25,7 +25,7 @@ class CursosDao(CursoDao):
     ''',(nome, nivel))
         
     def listar_curso(self):
-        self.cursor.execute('SELECT FROM * Cursos')
+        self.cursor.execute('SELECT * FROM  Cursos')
         cursos = self.cursor.fetchall()
         print("Lista de cursos")
         for curso in cursos:

@@ -2,7 +2,7 @@ import sqlite3
 
 class ProfessorDao:
     def __init__(self, nome_professor = "professor.db"):
-        self.conexao = sqlite3.connect()
+        self.conexao = sqlite3.connect(nome_professor)
         self.cursor = self.conexao.cursor()
     
     def fechar(self):

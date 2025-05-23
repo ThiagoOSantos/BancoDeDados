@@ -2,7 +2,7 @@ import sqlite3
 
 class Clientes:
     def __init__(self, nome_cliente="Clientes.db"):
-        self.conexao = sqlite3.connect()#Sempre que for começar a função construtora da classe, utilizar a conexao = sqlite3.connect('nome do banco' = 'banco.db')
+        self.conexao = sqlite3.connect(nome_cliente)#Sempre que for começar a função construtora da classe, utilizar a conexao = sqlite3.connect('nome do banco' = 'banco.db')
         self.cursor = self.conexao.cursor()
 
     def fechar(self):
@@ -40,7 +40,7 @@ def menu():
         print("Digite 1 para cadastrar cliente")
         print("Digite 2 para listar clientes")
         print("Digite 3 para listar sair")
-        opcao = input("O que deseja fazer?\n")
+        opcao = input("O que deseja fazer? \n")
         if opcao == "1":
             nome = input("Digite o nome do cliente:\n")
             email = input("Digite o email do cliente:\n")
@@ -49,7 +49,9 @@ def menu():
             dao.listar_clientes
         elif opcao == "3":
             dao.fechar
+            print("Encerrando")
             break
         else:
             print("Opção inválida")
-            
+
+menu()
